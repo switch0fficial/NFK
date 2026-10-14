@@ -1004,17 +1004,16 @@ section {
 /* Mobile Carousel */
 @media (max-width: 768px) {
     .clips-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 1rem;
-        padding-bottom: 1rem;
-        -webkit-overflow-scrolling: touch;
+        padding: 1rem;
     }
 
     .clip-card {
-        flex: 0 0 80vw;
-        scroll-snap-align: center;
+        max-width: 300px;
+        margin: 0 auto;
+        width: 100%;
     }
 }
 
