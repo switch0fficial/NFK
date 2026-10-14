@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NFK PRIME - Verified Blood Strike content creator and TikTok live streamer. 1V1, 1V4, live on TikTok.">
+    <meta name="keywords" content="NFK PRIME, Blood Strike, TikTok, gaming, content creator, 1V1, 1V4">
+    <meta name="author" content="NFK PRIME">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NFK PRIME | Verified Blood Strike Creator">
+    <meta property="og:description" content="NFK PRIME - Verified Blood Strike content creator and TikTok live streamer. 1V1, 1V4, live on TikTok.">
+    <meta property="og:image" content="images/og.jpg">
+    <meta property="og:url" content="https://your-domain.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NFK PRIME | Verified Blood Strike Creator">
+    <meta name="twitter:description" content="NFK PRIME - Verified Blood Strike content creator and TikTok live streamer. 1V1, 1V4, live on TikTok.">
+    <meta name="twitter:image" content="images/og.jpg">
+
+    <!-- Canonical URL - Replace with actual domain when deployed -->
+    <link rel="canonical" href="https://your-domain.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/tab.png">
+    <link rel="apple-touch-icon" href="images/tab.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000">
+
+    <title>NFK PRIME | Verified Blood Strike Creator</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Global Overlays -->
+    <div class="scanlines"></div>
+    <div class="film-grain"></div>
+    <div class="vignette"></div>
+
+    <!-- 3D Canvas -->
+    <canvas id="scene-canvas"></canvas>
+    <div class="fallback-bg"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-text" id="loader-text">INITIALIZING NFK PRIME...</div>
+        <div class="loader-progress">
+            <div class="loader-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" aria-label="NFK PRIME Home">NFK PRIME</a>
+
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#live" class="nav-link">Live</a></li>
+                <li><a href="#clips" class="nav-link">Clips</a></li>
+                <li><a href="#join" class="nav-link">Join</a></li>
+                <li>
+                    <a href="https://www.tiktok.com/@nfkprime"
+                       class="nav-cta"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Follow NFK PRIME on TikTok">
+                        Follow on TikTok
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <!-- Badge -->
+                <div class="hero-badge">
+                    <svg class="badge-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                    <span>VERIFIED BLOOD STRIKE CREATOR</span>
+                </div>
+
+                <!-- Profile Frame -->
+                <div class="hero-profile">
+                    <div class="profile-frame" id="profile-frame">
+                        <div class="profile-image-container">
+                            <img src="images/pfp.png"
+                                 alt="NFK PRIME Profile Picture"
+                                 class="profile-image"
+                                 id="profile-img"
+                                 onerror="this.onerror=null; this.src='images/profile.png'; this.onerror=function(){this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#D4AF37;font-family:Share Tech Mono;font-size:0.75rem;text-align:center;padding:1rem;\'>ADD PHOTO</div>';}">
+                        </div>
+                        <div class="profile-border"></div>
+                        <div class="profile-glow"></div>
+
+                        <!-- HUD Rings -->
+                        <div class="hud-ring hud-ring-1"></div>
+                        <div class="hud-ring hud-ring-2"></div>
+
+                        <!-- Crosshair Ticks -->
+                        <div class="crosshair-tick crosshair-tick-top"></div>
+                        <div class="crosshair-tick crosshair-tick-bottom"></div>
+                        <div class="crosshair-tick crosshair-tick-left"></div>
+                        <div class="crosshair-tick crosshair-tick-right"></div>
+
+                        <!-- Corner Brackets -->
+                        <div class="corner-bracket corner-tl"></div>
+                        <div class="corner-bracket corner-tr"></div>
+                        <div class="corner-bracket corner-bl"></div>
+                        <div class="corner-bracket corner-br"></div>
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="NFK PRIME">NFK PRIME</span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="hero-tagline" id="tagline"></p>
+
+                <!-- CTAs -->
+                <div class="hero-ctas">
+                    <a href="https://www.tiktok.com/@nfkprime"
+                       class="btn btn-primary"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Follow NFK PRIME on TikTok">
+                        <span>Follow on TikTok</span>
+                    </a>
+                    <a href="https://youtube.com/@nfk_prime?si=WUVYEZbxAJuRLOwZ"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Subscribe to NFK PRIME on YouTube">
+                        <span>Subscribe on YouTube</span>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VbDEipmLo4hZkfNHVi1A"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Join NFK PRIME WhatsApp Channel">
+                        <span>Join WhatsApp Channel</span>
+                    </a>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span class="marquee-item">BLOOD STRIKE</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">1V1</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">1V4</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">LIVE ON TIKTOK</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">NFK PRIME</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">BLOOD STRIKE</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">1V1</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">1V4</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">LIVE ON TIKTOK</span>
+                <span class="marquee-item">•</span>
+                <span class="marquee-item">NFK PRIME</span>
+                <span class="marquee-item">•</span>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-container">
+                <div class="about-content">
+                    <h2 class="section-title glitch-effect" id="about-title">
+                        <span>WHO IS</span>
+                        <span class="title-gradient">NFK?</span>
+                    </h2>
+                    <p class="about-text">
+                        NFK is a verified Blood Strike content creator and live streamer. I only stream on TikTok, so follow my TikTok page to get notified when I go live and for more Blood Strike updates.
+                    </p>
+
+                    <!-- Stats (hidden until populated) -->
+                    <div class="about-stats" id="about-stats" style="display: none;">
+                        <div class="stat-item">
+                            <span class="stat-label">Followers</span>
+                            <span class="stat-value" data-stat="followers">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Videos</span>
+                            <span class="stat-value" data-stat="videos">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Live Streams</span>
+                            <span class="stat-value" data-stat="live">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Section -->
+        <section id="live" class="live-section">
+            <div class="section-container">
+                <h2 class="section-title">
+                    <span>LIVE ONLY ON</span>
+                    <span class="title-gradient">TIKTOK</span>
+                </h2>
+
+                <div class="broadcast-ring"></div>
+
+                <p class="live-text">
+                    Follow my TikTok page to get notified when I go live.
+                </p>
+
+                <a href="https://www.tiktok.com/@nfkprime"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Follow NFK PRIME on TikTok">
+                    <span>Follow NFK on TikTok</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Clips Section -->
+        <section id="clips">
+            <div class="section-container">
+                <h2 class="section-title">
+                    <span>1V1 / 1V4</span>
+                    <span class="title-gradient">CLIPS</span>
+                </h2>
+
+                <div class="clips-grid" id="clips-grid">
+                    <!-- Clips will be rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+        <section id="join">
+            <div class="section-container">
+                <h2 class="section-title">
+                    <span>JOIN THE</span>
+                    <span class="title-gradient">SQUAD</span>
+                </h2>
+
+                <div class="join-grid">
+                    <!-- WhatsApp (Featured) -->
+                    <div class="join-card featured">
+                        <h3 class="join-card-title">WhatsApp Channel</h3>
+                        <p class="join-card-text">
+                            Join the WhatsApp channel to get your Blood Strike account and for more Blood Strike updates.
+                        </p>
+                        <a href="https://whatsapp.com/channel/0029VbDEipmLo4hZkfNHVi1A"
+                           class="btn btn-primary"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Join NFK PRIME WhatsApp Channel">
+                            <span>Join Channel</span>
+                        </a>
+                    </div>
+
+                    <!-- TikTok -->
+                    <div class="join-card">
+                        <h3 class="join-card-title">TikTok</h3>
+                        <p class="join-card-text">
+                            Follow NFK on TikTok for live streams, clips, and Blood Strike content.
+                        </p>
+                        <a href="https://www.tiktok.com/@nfkprime"
+                           class="btn btn-secondary"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Follow NFK PRIME on TikTok">
+                            <span>Follow NFK on TikTok</span>
+                        </a>
+                    </div>
+
+                    <!-- YouTube -->
+                    <div class="join-card">
+                        <h3 class="join-card-title">YouTube</h3>
+                        <p class="join-card-text">
+                            Subscribe to my YouTube channel for more content.
+                        </p>
+                        <a href="https://youtube.com/@nfk_prime?si=WUVYEZbxAJuRLOwZ"
+                           class="btn btn-secondary"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Subscribe to NFK PRIME on YouTube">
+                            <span>Subscribe to my YouTube channel</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">NFK PRIME</div>
+
+            <ul class="footer-links">
+                <li><a href="#about" class="footer-link">About</a></li>
+                <li><a href="#live" class="footer-link">Live</a></li>
+                <li><a href="#clips" class="footer-link">Clips</a></li>
+                <li><a href="#join" class="footer-link">Join</a></li>
+            </ul>
+
+            <div class="footer-note">
+                Blood Strike is a trademark of its respective owners. NFK PRIME is an independent creator website.
+            </div>
+
+            <div class="footer-email">
+                <a href="mailto:Josephojay79@gmail.com" class="footer-email-link">Josephojay79@gmail.com</a>
+                <button id="copy-email-btn" class="copy-email-btn" data-email="Josephojay79@gmail.com" aria-label="Copy email to clipboard">
+                    <span class="copy-icon">📋</span>
+                    <span class="copy-text">Copy</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
